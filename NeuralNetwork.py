@@ -27,7 +27,7 @@ class NeuralNetwork():
     #-training function
     def train(self, inputs, outputs, number_loops):
         for i in range(number_loops):
-            learning_rate = .05
+            learning_rate = .15
             input_layer = inputs
             self.predictions = self.think(inputs)
             error = (training_data_o - self.predictions)
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     training_data_o = np.array([[0,0,1,1]]).T
 
     training_data_i = np.array([[0,1,0],
-                                [0,1,1],
+                                [0,0,1],
                                 [1,0,0],
                                 [1,1,1]])
 
@@ -80,6 +80,8 @@ if __name__ == "__main__":
     print('Predictions after training :  ')
     print(neural_network.predictions)
 
+    neural_network.visualize()
+
     while input != "x":
         print()
         print('Enter a new situation :  ')
@@ -92,5 +94,3 @@ if __name__ == "__main__":
         print()
         print('Prediction of new situation :  ')
         print(neural_network.think(np.array([x0, x1, x2])))
-
-    neural_network.visualize()
